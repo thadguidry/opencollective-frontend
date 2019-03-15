@@ -32,6 +32,7 @@ pages
   .add('editCollective', '/:slug/edit/:section?')
   .add('events', '/:collectiveSlug/events')
   .add('subscriptions', '/:collectiveSlug/subscriptions')
+  .add('tiers', '/:collectiveSlug/(tiers|contribute)')
   .add('tiers-iframe', '/:collectiveSlug/tiers/iframe')
   .add('collectiveTaxes', '/:collectiveSlug/taxes')
   .add('host.expenses', '/:hostCollectiveSlug/collectives/expenses', 'host.dashboard')
