@@ -27,21 +27,6 @@ class CollectivePage extends React.Component {
     data: PropTypes.object.isRequired, // from withData
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  async componentDidMount() {
-    const { LoggedInUser, query, data = {} } = this.props;
-    window.OC = window.OC || {};
-    window.OC.LoggedInUser = LoggedInUser;
-
-    if (query.refetch && data.refetch) {
-      data.refetch();
-    }
-  }
-
   shouldComponentUpdate(nextProps) {
     // It can be that Apollo is resetting data when navigating from a page to another
     // We try to detect that and prevent rendering
@@ -58,8 +43,8 @@ class CollectivePage extends React.Component {
     if (!data.loading && !data.Collective) {
       ssrNotFoundError(data);
     }
-
     const collective = data.Collective;
+
     const props = {
       collective,
       LoggedInUser,
