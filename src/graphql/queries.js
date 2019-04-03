@@ -188,6 +188,12 @@ export const getCollectiveToEditQueryFields = `
     description
     website
     twitterHandle
+    collective {
+      id
+      slug
+      name
+      currency
+    }
     location {
       country
     }
