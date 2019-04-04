@@ -1,5 +1,5 @@
 # source: http://localhost:3000/api/graphql
-# timestamp: Thu Mar 28 2019 12:48:57 GMT+0100 (GMT+01:00)
+# timestamp: Thu Apr 04 2019 14:57:09 GMT+0200 (Central European Summer Time)
 
 """Application model"""
 type Application {
@@ -97,6 +97,9 @@ type Collective implements CollectiveInterface {
   Get the host collective that is receiving the money on behalf of this collective
   """
   host: CollectiveInterface
+
+  """A host might have a collective attached to it"""
+  hostCollective: CollectiveInterface
 
   """
   Get all the members of this collective (admins, members, backers, followers)
@@ -249,6 +252,7 @@ interface CollectiveInterface {
   isArchived: Boolean
   isDeletable: Boolean
   host: CollectiveInterface
+  hostCollective: CollectiveInterface
 
   """
   List of all collectives that are related to this collective with their
@@ -537,6 +541,9 @@ type Event implements CollectiveInterface {
   Get the host collective that is receiving the money on behalf of this collective
   """
   host: CollectiveInterface
+
+  """A host might have a collective attached to it"""
+  hostCollective: CollectiveInterface
 
   """
   Get all the members of this collective (admins, members, backers, followers)
@@ -1227,6 +1234,9 @@ type Organization implements CollectiveInterface {
   """
   host: CollectiveInterface
 
+  """A host might have a collective attached to it"""
+  hostCollective: CollectiveInterface
+
   """
   Get all the members of this collective (admins, members, backers, followers)
   """
@@ -1833,6 +1843,9 @@ type User implements CollectiveInterface {
   Get the host collective that is receiving the money on behalf of this collective
   """
   host: CollectiveInterface
+
+  """A host might have a collective attached to it"""
+  hostCollective: CollectiveInterface
 
   """
   Get all the members of this collective (admins, members, backers, followers)
